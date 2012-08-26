@@ -1,0 +1,104 @@
+
+<html>
+<head>
+  
+  <script type="text/javascript" charset="utf-8">
+  
+  function renderChart(ahaArray){
+    ahaArray
+  }
+  
+    var chart1; // globally available
+    $(document).ready(function() {
+      
+        var huhs = [];
+        $.each(stats.huh, function(index, value) {
+          huhs.push(value.time);
+        });
+      
+        var ahas = [];
+        $.each(stats.aha, function(index, value) {
+          (ahas.push(parseInt(value.time)));
+        });
+      
+        function arrayLength(value, length) {
+          var arr = [], i = length;
+          while (i--) {
+            arr[i] = value;
+          }
+          return arr;
+        }
+
+  
+  
+  
+        var count_array = arrayLength(0, stats.duration)
+        
+    $.each(huhs, function(index, value) {
+        count_array[value-1]++;
+      })
+        
+        
+
+        console.log(count_array);
+      
+          chart1 = new Highcharts.Chart({
+             chart: {
+                renderTo: 'container',
+             },
+             title: {
+                text: 'Comprehension for ' + stats.course 
+             },
+             xAxis: {
+               tickInterval: 1,
+               max: stats.duration
+               
+             },
+             yAxis: {
+                title: {
+                  text: 'Comprehension'
+                },
+                // max: huhs.length
+             },
+             series: [{
+                 pointInterval: 1,
+                 pointStart: 0,
+                 data: huhs
+               }]
+          });
+       });
+  </script>  
+  
+</head>
+
+<body>
+  hello interactive view!
+<div id="container" style="width: 100%; height: 400px"></div>
+
+<div id="show"></div>
+  
+  <!-- <script>
+  var arry = []
+    $(function(){
+      
+      var huhs = [];
+      $.each(stats.huh, function(index, value) {
+        huhs.push(value.time);
+      });
+      
+      var ahas = [];
+      $.each(stats.aha, function(index, value) {
+        ahas.push(value.time);
+      });
+      
+      console.log(ahas, huhs);
+    })
+  </script> -->
+</body>
+<!-- $(function(){
+  
+  $("#show").append(stats.aha[0].user)
+  
+}) -->
+
+</html>

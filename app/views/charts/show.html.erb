@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Video time:</b>
+  <%= @chart.video_time %>
+</p>
+
+<p>
+  <b>Comprehension:</b>
+  <%= @chart.comprehension %>
+</p>
+
+
+<%= link_to 'Edit', edit_chart_path(@chart) %> |
+<%= link_to 'Back', charts_path %>
